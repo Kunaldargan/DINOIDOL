@@ -9,6 +9,9 @@ _PROJECTS = {
     "point_rend": "PointRend",
     "deeplab": "DeepLab",
     "panoptic_deeplab": "Panoptic-DeepLab",
+    "idol": "IDOL",
+    "seqformer": "SeqFormer",
+    "maskdino": "MaskDINO",
 }
 _PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent / "projects"
 

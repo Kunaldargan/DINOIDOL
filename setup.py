@@ -146,6 +146,9 @@ PROJECTS = {
     "detectron2.projects.point_rend": "projects/PointRend/point_rend",
     "detectron2.projects.deeplab": "projects/DeepLab/deeplab",
     "detectron2.projects.panoptic_deeplab": "projects/Panoptic-DeepLab/panoptic_deeplab",
+    "detectron2.projects.idol": "projects/IDOL",
+    "detectron2.projects.seqformer": "projects/SeqFormer",
+    "detectron2.projects.maskdino": "projects/MaskDINO",
 }
 
 setup(

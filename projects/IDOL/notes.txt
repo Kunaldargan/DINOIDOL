@@ -1,0 +1,39 @@
+1. Deep supervision:
+
+Deep supervision is a technique used in deep learning, particularly in object detection and segmentation tasks. 
+It involves adding auxiliary losses at intermediate layers of the network, in addition to the main loss function at the output 
+layer. The goal of deep supervision is to provide additional guidance to the network during training, helping it to learn more
+robust and accurate representations. 
+ 
+ In the context of object detection and segmentation, deep supervision is often used to improve the performance of the model by:
+
+    Regularizing the intermediate features: By adding auxiliary losses at intermediate layers, the network is encouraged to 
+    learn more meaningful and discriminative features at each stage.
+    Improving feature alignment: Deep supervision helps to align the features learned at different scales and resolutions, 
+    which is important for tasks like object detection and segmentation.
+    Enhancing robustness: By providing additional supervision, the network becomes more robust to variations in the input data, 
+    such as occlusions, rotations, and scale changes.
+
+In the code snippet you provided, deep supervision is implemented by adding auxiliary losses at intermediate layers 
+of the transformer decoder. The weight_dict dictionary defines the weights for each loss term, including the auxiliary losses. The aux_weight_dict dictionary is used to store the weights for the auxiliary losses at each intermediate layer. The benefits of deep supervision include:
+
+    Improved object detection and segmentation performance
+    Increased robustness to input variations
+    Better feature learning and alignment
+
+However, deep supervision also has some limitations and potential drawbacks, such as:
+
+    Increased computational cost and memory requirements
+    Risk of overfitting to the auxiliary losses
+    Need for careful tuning of the auxiliary loss weights and hyperparameters
+
+Overall, deep supervision is a powerful technique for improving the performance of object detection and 
+segmentation models, but it requires careful implementation and tuning to achieve the best results.
+
+
+----
+
+ToDO:
+
+Understand data pipeline of IDOL and model it according to maskdino : <maskdino: coco_instance_new_baseline_dataset_mapper.py>
+Processing of maskdino losses
