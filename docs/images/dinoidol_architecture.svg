@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1520" height="1590" viewBox="0 0 1520 1590" role="img" aria-labelledby="title desc">
+<title id="title">DINOIDOL architecture</title><desc id="desc">Conceptual DINO and MaskDINO-style frame segmentation with IDOL temporal association. Encoded features supply reference boxes, decoder memory, and pixel features. Training-only denoising queries enter the decoder separately. Class, box, mask, and re-identification predictions are associated into persistent video tracks.</desc>
+<defs>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker>
+<marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#087f77"/></marker>
+<marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a66300"/></marker>
+<marker id="arrow-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ab387d"/></marker>
+<marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#53647c"/></marker>
+</defs>
+<rect x="0" y="0" width="1520" height="1590" rx="0" fill="#f7f9fc" stroke="#f7f9fc" stroke-width="1.6"/>
+<text id="text-1" x="48" y="45" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#2563eb">DINOIDOL  /  CONCEPTUAL ARCHITECTURE</text>
+<text id="text-2" x="48" y="94" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="40" font-weight="700" fill="#17243b">From video frames to tracked instruments</text>
+<text id="text-3" x="48" y="132" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="#53647c">DINO / MaskDINO-style frame segmentation with IDOL temporal association</text>
+<path d="M 48 174 L 98 174" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<text id="text-4" x="112" y="181" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#53647c">Forward pass</text>
+<path d="M 355 174 L 405 174" fill="none" stroke="#a66300" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 7" marker-end="url(#arrow-amber)"/>
+<text id="text-5" x="419" y="181" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#53647c">Training only</text>
+<path d="M 670 174 L 720 174" fill="none" stroke="#087f77" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+<text id="text-6" x="734" y="181" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#53647c">Temporal association</text>
+<rect x="40" y="210" width="1440" height="240" rx="22" fill="#ffffff" stroke="#dce4ef" stroke-width="1.6"/>
+<rect x="64" y="230" width="38" height="32" rx="9" fill="#edf4ff" stroke="#edf4ff" stroke-width="1.6"/>
+<text id="text-7" x="83" y="253" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#2563eb">01</text>
+<text id="text-8" x="118" y="254" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#17243b">Encode each frame</text>
+<rect x="40" y="510" width="1008" height="418" rx="22" fill="#ffffff" stroke="#dce4ef" stroke-width="1.6"/>
+<rect x="64" y="530" width="38" height="32" rx="9" fill="#edf4ff" stroke="#edf4ff" stroke-width="1.6"/>
+<text id="text-9" x="83" y="553" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#2563eb">02</text>
+<text id="text-10" x="118" y="554" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#17243b">Initialize and refine object queries</text>
+<rect x="40" y="964" width="1440" height="240" rx="22" fill="#ffffff" stroke="#dce4ef" stroke-width="1.6"/>
+<rect x="64" y="984" width="38" height="32" rx="9" fill="#edf4ff" stroke="#edf4ff" stroke-width="1.6"/>
+<text id="text-11" x="83" y="1007" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#2563eb">03</text>
+<text id="text-12" x="118" y="1008" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#17243b">Predict each instance</text>
+<rect x="40" y="1260" width="1440" height="242" rx="22" fill="#ffffff" stroke="#dce4ef" stroke-width="1.6"/>
+<rect x="64" y="1280" width="38" height="32" rx="9" fill="#e9f8f4" stroke="#e9f8f4" stroke-width="1.6"/>
+<text id="text-13" x="83" y="1303" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#087f77">04</text>
+<text id="text-14" x="118" y="1304" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#17243b">Associate instances across time</text>
+<rect x="64" y="285" width="280" height="118" rx="16" fill="#edf4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-15" x="204.0" y="324.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Video frames</text>
+<text id="text-16" x="204.0" y="356.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">t − 1  ·  t  ·  t + 1</text>
+<text id="text-17" x="204.0" y="384.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">one frame at a time</text>
+<rect x="408" y="285" width="288" height="118" rx="16" fill="#edf4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-18" x="552.0" y="324.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Backbone</text>
+<text id="text-19" x="552.0" y="356.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">CNN / ViT</text>
+<text id="text-20" x="552.0" y="384.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">multi-scale feature maps</text>
+<rect x="752" y="285" width="344" height="118" rx="16" fill="#edf4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-21" x="924.0" y="324.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#17243b">Feature encoder × N</text>
+<text id="text-22" x="924.0" y="356.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">tokens + position / level</text>
+<text id="text-23" x="924.0" y="384.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">multi-scale deformable attention</text>
+<rect x="1152" y="285" width="304" height="118" rx="16" fill="#edf4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-24" x="1304.0" y="324.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Encoded features</text>
+<text id="text-25" x="1304.0" y="356.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">visual memory</text>
+<text id="text-26" x="1304.0" y="384.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">+ spatial feature branch</text>
+<path d="M 344 344 L 408 344" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<path d="M 696 344 L 752 344" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<path d="M 1096 344 L 1152 344" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<text id="text-27" x="776" y="430" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#53647c">Includes feature fusion for the mask branch.</text>
+<path d="M 1224 403 L 1224 476 L 20 476 L 20 636 L 64 636" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<rect x="595.0" y="454" width="190" height="30" rx="7" fill="#f7f9fc" stroke="#f7f9fc" stroke-width="1.6"/>
+<text id="text-28" x="690" y="476" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#53647c">encoder proposals</text>
+<rect x="64" y="582" width="400" height="108" rx="16" fill="#edf4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-29" x="264.0" y="630.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Top-K query selection</text>
+<text id="text-30" x="264.0" y="662.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">initial reference boxes / anchors</text>
+<rect x="560" y="582" width="440" height="108" rx="16" fill="#edf4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-31" x="780.0" y="630.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Learnable content queries</text>
+<text id="text-32" x="780.0" y="662.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">learned instance query embeddings</text>
+<path d="M 264 690 L 264 720 L 610 720 L 610 748" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<rect x="380.0" y="698" width="88" height="30" rx="7" fill="#ffffff" stroke="#ffffff" stroke-width="1.6"/>
+<text id="text-33" x="424" y="720" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#53647c">position</text>
+<path d="M 850 690 L 850 748" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<rect x="851.0" y="703" width="86" height="30" rx="7" fill="#ffffff" stroke="#ffffff" stroke-width="1.6"/>
+<text id="text-34" x="894" y="725" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#53647c">content</text>
+<path d="M 1304 403 L 1304 748" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<path d="M 1304 724 L 1032 724 L 1032 784 L 1000 784" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<circle cx="1304" cy="724" r="4" fill="#2563eb"/>
+<rect x="1083.0" y="702" width="214" height="30" rx="7" fill="#f7f9fc" stroke="#f7f9fc" stroke-width="1.6"/>
+<text id="text-35" x="1190" y="724" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#53647c">key / value memory</text>
+<rect x="1132" y="748" width="324" height="138" rx="16" fill="#edf4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-36" x="1294.0" y="797.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#17243b">Pixel feature map</text>
+<text id="text-37" x="1294.0" y="829.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">high-resolution embeddings</text>
+<text id="text-38" x="1294.0" y="857.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">encoder + backbone fusion</text>
+<rect x="560" y="748" width="440" height="138" rx="16" fill="#edf4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-39" x="780.0" y="797.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="24" font-weight="700" fill="#17243b">Transformer decoder × M</text>
+<text id="text-40" x="780.0" y="829.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">self-attention + cross-attention</text>
+<text id="text-41" x="780.0" y="857.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">iterative query / box refinement</text>
+<rect x="64" y="770" width="400" height="116" rx="16" fill="#fff6df" stroke="#a66300" stroke-width="1.6" stroke-dasharray="8 6"/>
+<text id="text-42" x="264.0" y="808.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="23" font-weight="700" fill="#17243b">Contrastive denoising (CDN)</text>
+<text id="text-43" x="264.0" y="840.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">ground truth + noise → aux. queries</text>
+<text id="text-44" x="264.0" y="868.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">training only</text>
+<path d="M 464 828 L 560 828" fill="none" stroke="#a66300" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 7" marker-end="url(#arrow-amber)"/>
+<path d="M 780 886 L 780 1022" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<rect x="652.0" y="926" width="256" height="30" rx="7" fill="#f7f9fc" stroke="#f7f9fc" stroke-width="1.6"/>
+<text id="text-45" x="780" y="948" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#53647c">refined instance queries</text>
+<path d="M 238 1040 L 238 1022 L 1208 1022" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 238 1022 L 238 1040" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<path d="M 780 1022 L 780 1040" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<path d="M 1208 1022 L 1208 1040" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<circle cx="780" cy="1022" r="4" fill="#2563eb"/>
+<path d="M 1304 886 L 1304 1040" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<rect x="1209.0" y="919" width="190" height="30" rx="7" fill="#f7f9fc" stroke="#f7f9fc" stroke-width="1.6"/>
+<text id="text-46" x="1304" y="941" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#53647c">pixel embeddings</text>
+<rect x="64" y="1040" width="348" height="118" rx="16" fill="#edf4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-47" x="238.0" y="1079.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Class + box heads</text>
+<text id="text-48" x="238.0" y="1111.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">class logits / confidence</text>
+<text id="text-49" x="238.0" y="1139.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">bounding boxes</text>
+<rect x="560" y="1040" width="440" height="118" rx="16" fill="#e9f8f4" stroke="#087f77" stroke-width="1.6"/>
+<text id="text-50" x="780.0" y="1079.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Re-ID embedding head</text>
+<text id="text-51" x="780.0" y="1111.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">instance appearance vectors</text>
+<text id="text-52" x="780.0" y="1139.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">for temporal association</text>
+<rect x="1108" y="1040" width="348" height="118" rx="16" fill="#edf4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-53" x="1282.0" y="1079.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Mask head</text>
+<text id="text-54" x="1282.0" y="1111.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">query mask embeddings</text>
+<text id="text-55" x="1282.0" y="1139.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">× pixel map → instance masks</text>
+<path d="M 238 1158 L 238 1228" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 780 1158 L 780 1228" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 1282 1158 L 1282 1228" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 20 1228 L 1282 1228" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<path d="M 20 1228 L 20 1393 L 64 1393" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<circle cx="238" cy="1228" r="4" fill="#2563eb"/>
+<circle cx="780" cy="1228" r="4" fill="#2563eb"/>
+<rect x="630.0" y="1206" width="300" height="30" rx="7" fill="#f7f9fc" stroke="#f7f9fc" stroke-width="1.6"/>
+<text id="text-56" x="780" y="1228" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#53647c">per-frame prediction bundle</text>
+<rect x="64" y="1334" width="400" height="118" rx="16" fill="#e9f8f4" stroke="#087f77" stroke-width="1.6"/>
+<text id="text-57" x="264.0" y="1373.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Frame instances</text>
+<text id="text-58" x="264.0" y="1405.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">label  ·  box  ·  mask</text>
+<text id="text-59" x="264.0" y="1433.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">+ Re-ID embedding</text>
+<rect x="560" y="1334" width="440" height="118" rx="16" fill="#e9f8f4" stroke="#087f77" stroke-width="1.6"/>
+<text id="text-60" x="780.0" y="1373.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">IDOL online association</text>
+<text id="text-61" x="780.0" y="1405.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">match against track history</text>
+<text id="text-62" x="780.0" y="1433.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">assign IDs + update track memory</text>
+<rect x="1108" y="1334" width="348" height="118" rx="16" fill="#e9f8f4" stroke="#087f77" stroke-width="1.6"/>
+<text id="text-63" x="1282.0" y="1373.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Video instances</text>
+<text id="text-64" x="1282.0" y="1405.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">persistent track IDs</text>
+<text id="text-65" x="1282.0" y="1433.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">classes + masks over time</text>
+<path d="M 464 1393 L 560 1393" fill="none" stroke="#087f77" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+<path d="M 1000 1393 L 1108 1393" fill="none" stroke="#087f77" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-teal)"/>
+<text id="text-66" x="64" y="1484" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#53647c">Track memory is carried forward and updated for each incoming frame.</text>
+<text id="text-67" x="48" y="1545" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#53647c">Conceptual integration based on the supplied schematic; repository implementation is not verified.</text>
+<text id="text-68" x="48" y="1572" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="19" font-weight="400" fill="#53647c">N / M, feature scales, query initialization and denoising settings depend on configuration.</text>
+</svg>

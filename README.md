@@ -25,10 +25,10 @@ MODEL:
 
 The canonical EV18 experiment is [projects/IDOL/configs/EV18_DINOIDOL_r50.yaml](projects/IDOL/configs/EV18_DINOIDOL_r50.yaml). The older [EV18_r50.yaml](projects/IDOL/configs/EV18_r50.yaml) config is the non-DINO IDOL baseline.
 
-The diagram below is an original project-specific sketch inspired by the [DINO/MaskDINO component split](https://github.com/IDEA-Research/MaskDINO#model-components): backbone, pixel decoder (multi-scale encoder), and Transformer decoder.
+The updated diagram below is a conceptual integration inspired by the [DINO/MaskDINO component split](https://github.com/IDEA-Research/MaskDINO#model-components): frame encoding, top-K query initialization, decoder memory, mask features, training-only denoising, Re-ID embeddings, and IDOL temporal association. It is not a line-by-line map of one runtime path; exact feature scales, layer counts, query initialization, and denoising settings depend on the checked-in configuration and implementation.
 
 <p align="center">
-  <img src="docs/images/dinoidol-architecture.svg" alt="DINOIDOL architecture diagram" width="100%" />
+  <img src="docs/images/dinoidol_architecture.svg" alt="DINOIDOL conceptual architecture diagram" width="100%" />
 </p>
 
 ## DINOIDOL and CP-SIS
@@ -43,7 +43,7 @@ This repository and [CP-SIS](https://github.com/Kunaldargan/CP_SIS) address rela
 CP-SIS is described in *CP-SIS: Learnable Class Prototypes for Efficient Surgical Instrument Segmentation*, ICVGIP 2025, [DOI: 10.1145/3774521.3774567](https://doi.org/10.1145/3774521.3774567). Its motivation is especially relevant to EV18: generic visual features can confuse visually similar instruments under domain shift and long-tailed class frequencies. DINOIDOL supplies a useful temporal foundation for that setting, while a prototype classifier is a possible future replacement for the current query classification layer. That combination is a design direction, not a component currently included in this checkout.
 
 <p align="center">
-  <img src="docs/images/dinoidol-cpsis-context.svg" alt="DINOIDOL and CP-SIS relationship diagram" width="100%" />
+  <img src="docs/images/dinoidol_cpsis_comparison.svg" alt="DINOIDOL and CP-SIS complementary roles diagram" width="100%" />
 </p>
 
 For the earlier online video segmentation method that DINOIDOL extends, see [IDOL](projects/IDOL/IDOL.md) and [In Defense of Online Models for Video Instance Segmentation](https://arxiv.org/abs/2207.07163).

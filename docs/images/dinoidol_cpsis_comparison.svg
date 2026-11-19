@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1000" viewBox="0 0 1440 1000" role="img" aria-labelledby="title desc">
+<title id="title">DINOIDOL and CP-SIS: complementary views</title><desc id="desc">Side-by-side conceptual comparison: DINOIDOL links instrument instances over time, while CP-SIS uses DINOv2 features and class prototypes to classify proposal masks. Combining prototype-guided classification and IDOL tracking is a future direction marked unimplemented in the supplied repository schematic.</desc>
+<defs>
+<marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#2563eb"/></marker>
+<marker id="arrow-teal" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#087f77"/></marker>
+<marker id="arrow-amber" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#a66300"/></marker>
+<marker id="arrow-pink" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#ab387d"/></marker>
+<marker id="arrow-muted" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#53647c"/></marker>
+</defs>
+<rect x="0" y="0" width="1440" height="1000" rx="0" fill="#f7f9fc" stroke="#f7f9fc" stroke-width="1.6"/>
+<text id="text-1" x="48" y="45" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#2563eb">SURGICAL INSTRUMENT SEGMENTATION</text>
+<text id="text-2" x="48" y="94" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="40" font-weight="700" fill="#17243b">Two complementary views</text>
+<text id="text-3" x="48" y="132" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="24" font-weight="400" fill="#53647c">Temporal identity across video  ·  Class discrimination within each frame</text>
+<rect x="40" y="180" width="660" height="600" rx="22" fill="#ffffff" stroke="#dce4ef" stroke-width="1.6"/>
+<rect x="64" y="204" width="6" height="64" rx="3" fill="#2563eb" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-4" x="88" y="231" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#17243b">DINOIDOL</text>
+<text id="text-5" x="88" y="262" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#53647c">VIDEO INSTANCE SEGMENTATION</text>
+<rect x="740" y="180" width="660" height="600" rx="22" fill="#ffffff" stroke="#dce4ef" stroke-width="1.6"/>
+<rect x="764" y="204" width="6" height="64" rx="3" fill="#ab387d" stroke="#ab387d" stroke-width="1.6"/>
+<text id="text-6" x="788" y="231" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="30" font-weight="700" fill="#17243b">CP-SIS</text>
+<text id="text-7" x="788" y="262" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#53647c">CLASS-AWARE FRAME SEGMENTATION</text>
+<rect x="72" y="300" width="596" height="108" rx="16" fill="#edf4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-8" x="370.0" y="348.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">MaskDINO frame predictions</text>
+<text id="text-9" x="370.0" y="380.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">Object queries, boxes and instance masks</text>
+<rect x="72" y="452" width="596" height="108" rx="16" fill="#edf4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-10" x="370.0" y="500.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">IDOL online association</text>
+<text id="text-11" x="370.0" y="532.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">Re-ID embeddings + track memory</text>
+<rect x="72" y="604" width="596" height="108" rx="16" fill="#edf4ff" stroke="#2563eb" stroke-width="1.6"/>
+<text id="text-12" x="370.0" y="652.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Tracked instruments</text>
+<text id="text-13" x="370.0" y="684.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">Mask sequences + persistent instance IDs</text>
+<path d="M 370 408 L 370 452" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<path d="M 370 560 L 370 604" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-blue)"/>
+<rect x="772" y="300" width="596" height="108" rx="16" fill="#fff0f7" stroke="#ab387d" stroke-width="1.6"/>
+<text id="text-14" x="1070.0" y="348.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">DINOv2 features + LoRA</text>
+<text id="text-15" x="1070.0" y="380.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">Visual features from proposal-defined ROIs</text>
+<rect x="772" y="452" width="596" height="108" rx="16" fill="#fff0f7" stroke="#ab387d" stroke-width="1.6"/>
+<text id="text-16" x="1070.0" y="500.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Learnable class prototypes</text>
+<text id="text-17" x="1070.0" y="532.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">Prototype-guided class discrimination</text>
+<rect x="772" y="604" width="596" height="108" rx="16" fill="#fff0f7" stroke="#ab387d" stroke-width="1.6"/>
+<text id="text-18" x="1070.0" y="652.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Class-aware masks</text>
+<text id="text-19" x="1070.0" y="684.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">Class assignments for the proposal masks</text>
+<path d="M 1070 408 L 1070 452" fill="none" stroke="#ab387d" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-pink)"/>
+<path d="M 1070 560 L 1070 604" fill="none" stroke="#ab387d" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" marker-end="url(#arrow-pink)"/>
+<text id="text-20" x="72" y="752" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">Focus: frame-to-frame identity and mask continuity.</text>
+<text id="text-21" x="772" y="752" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">Focus: class separation with efficient adaptation.</text>
+<path d="M 370 780 L 370 820 L 530 820 L 530 846" fill="none" stroke="#a66300" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 7" marker-end="url(#arrow-amber)"/>
+<path d="M 1070 780 L 1070 820 L 910 820 L 910 846" fill="none" stroke="#a66300" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round" stroke-dasharray="9 7" marker-end="url(#arrow-amber)"/>
+<rect x="288" y="846" width="864" height="100" rx="16" fill="#fff6df" stroke="#a66300" stroke-width="1.6" stroke-dasharray="8 6"/>
+<text id="text-22" x="720.0" y="890.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="25" font-weight="700" fill="#17243b">Future integration · NOT IMPLEMENTED</text>
+<text id="text-23" x="720.0" y="922.0" text-anchor="middle" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="21" font-weight="400" fill="#53647c">Prototype-guided classification + IDOL temporal tracking</text>
+<text id="text-24" x="48" y="981" text-anchor="start" font-family="Liberation Sans, Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#53647c">DINO / MaskDINO detection models and the DINOv2 feature backbone are distinct model families.</text>
+</svg>
