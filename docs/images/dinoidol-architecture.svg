@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="980" viewBox="0 0 1800 980" role="img" aria-labelledby="title desc">
+  <title id="title">DINOIDOL DINO and MaskDINO inspired architecture</title>
+  <desc id="desc">A project-specific architecture diagram showing multi-scale video features and positional embeddings entering a transformer encoder, DINO-style query selection and denoising, a transformer decoder, mask and box heads, and IDOL temporal association.</desc>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#202124"/>
+    </marker>
+    <marker id="blue-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#315fb8"/>
+    </marker>
+    <marker id="orange-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b87900"/>
+    </marker>
+    <style>
+      .title { font: 700 30px Arial, Helvetica, sans-serif; fill: #171717; }
+      .subtitle { font: 16px Arial, Helvetica, sans-serif; fill: #5f6368; }
+      .section { font: 700 19px Arial, Helvetica, sans-serif; fill: #171717; }
+      .label { font: 16px Arial, Helvetica, sans-serif; fill: #202124; }
+      .small { font: 14px Arial, Helvetica, sans-serif; fill: #4d5156; }
+      .tiny { font: 12px Arial, Helvetica, sans-serif; fill: #4d5156; }
+      .panel { fill: #eeeeef; stroke: #c9c9cb; stroke-width: 2; }
+      .panel-blue { fill: #eaf1ff; stroke: #315fb8; stroke-width: 2; }
+      .panel-orange { fill: #fff5df; stroke: #b87900; stroke-width: 2; }
+      .token { fill: #4f7bc7; stroke: #244f9a; stroke-width: 2; }
+      .token-light { fill: #ffffff; stroke: #315fb8; stroke-width: 2; }
+      .token-query { fill: #315fb8; stroke: #1e4388; stroke-width: 2; }
+      .token-orange { fill: #f7c84b; stroke: #b87900; stroke-width: 2; }
+      .token-neg { fill: #6c5a13; stroke: #3e3408; stroke-width: 2; }
+      .line { stroke: #202124; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .line-blue { stroke: #315fb8; stroke-width: 2.5; fill: none; marker-end: url(#blue-arrow); }
+      .line-orange { stroke: #b87900; stroke-width: 2.5; fill: none; marker-end: url(#orange-arrow); }
+      .dash { stroke: #777; stroke-width: 1.5; stroke-dasharray: 7 6; fill: none; }
+    </style>
+  </defs>
+
+  <rect width="1800" height="980" fill="#ffffff"/>
+  <text x="48" y="52" class="title">DINOIDOL — DINO / MaskDINO-inspired temporal instance segmentation</text>
+  <text x="48" y="80" class="subtitle">A project-specific view: DINO-style query refinement supplies object candidates; IDOL links them across surgical video frames.</text>
+
+  <!-- Input video clip -->
+  <text x="54" y="128" class="section">Video clip</text>
+  <rect x="48" y="148" width="250" height="190" rx="12" class="panel"/>
+  <rect x="68" y="174" width="92" height="72" rx="4" fill="#dce7f6" stroke="#315fb8" stroke-width="2"/>
+  <rect x="117" y="198" width="92" height="72" rx="4" fill="#e9eef7" stroke="#315fb8" stroke-width="2"/>
+  <rect x="166" y="222" width="92" height="72" rx="4" fill="#f3f6fb" stroke="#315fb8" stroke-width="2"/>
+  <path d="M91 214 C104 187 125 187 137 211 C143 223 151 226 160 214" fill="none" stroke="#8aa7d8" stroke-width="6"/>
+  <path d="M141 238 C154 211 175 211 187 235 C193 247 201 250 210 238" fill="none" stroke="#8aa7d8" stroke-width="6"/>
+  <path d="M190 262 C203 235 224 235 236 259 C242 271 250 274 259 262" fill="none" stroke="#8aa7d8" stroke-width="6"/>
+  <text x="82" y="319" class="small">frame t−1</text>
+  <text x="143" y="319" class="small">frame t</text>
+  <text x="206" y="319" class="small">frame t+1</text>
+
+  <!-- Backbone and multi-scale features -->
+  <path d="M298 244 H340" class="line"/>
+  <rect x="340" y="188" width="130" height="112" rx="10" class="panel-blue"/>
+  <text x="405" y="232" text-anchor="middle" class="section">Backbone</text>
+  <text x="405" y="258" text-anchor="middle" class="small">CNN / ViT</text>
+  <text x="405" y="280" text-anchor="middle" class="small">feature pyramid</text>
+
+  <text x="335" y="370" class="section">Multi-scale features</text>
+  <path d="M470 244 H505 V360" class="line"/>
+  <path d="M505 360 H532" class="line-blue"/>
+  <path d="M505 360 V440 H532" class="line-blue"/>
+  <path d="M505 360 V520 H532" class="line-blue"/>
+  <rect x="532" y="326" width="120" height="62" class="token"/>
+  <rect x="552" y="406" width="100" height="54" class="token"/>
+  <rect x="572" y="486" width="80" height="46" class="token"/>
+  <text x="592" y="362" text-anchor="middle" class="small" fill="#ffffff">1/8</text>
+  <text x="602" y="438" text-anchor="middle" class="small" fill="#ffffff">1/16</text>
+  <text x="612" y="515" text-anchor="middle" class="small" fill="#ffffff">1/32</text>
+
+  <!-- Positional embeddings -->
+  <text x="335" y="612" class="section">Positional embeddings</text>
+  <rect x="356" y="640" width="120" height="50" class="token-query"/>
+  <rect x="376" y="676" width="120" height="50" class="token-query"/>
+  <rect x="396" y="712" width="120" height="50" class="token-query"/>
+  <path d="M532 357 H690 V638" class="line-blue"/>
+  <path d="M552 433 H710 V674" class="line-blue"/>
+  <path d="M572 509 H730 V710" class="line-blue"/>
+  <text x="545" y="594" class="small" transform="rotate(-90 545 594)">flatten + add position</text>
+
+  <!-- Flattened tokens -->
+  <text x="760" y="278" class="section" text-anchor="middle">Flattened multi-scale tokens</text>
+  <g transform="translate(704 300)">
+    <rect x="0" y="0" width="34" height="34" class="token"/>
+    <rect x="44" y="0" width="34" height="34" class="token"/>
+    <rect x="88" y="0" width="34" height="34" class="token"/>
+    <rect x="132" y="0" width="34" height="34" class="token"/>
+    <rect x="176" y="0" width="34" height="34" class="token"/>
+    <rect x="220" y="0" width="34" height="34" class="token"/>
+    <rect x="264" y="0" width="34" height="34" class="token"/>
+    <rect x="308" y="0" width="34" height="34" class="token"/>
+    <rect x="352" y="0" width="34" height="34" class="token"/>
+  </g>
+  <g transform="translate(704 350)">
+    <rect x="0" y="0" width="34" height="34" class="token-light"/>
+    <rect x="44" y="0" width="34" height="34" class="token-light"/>
+    <rect x="88" y="0" width="34" height="34" class="token-light"/>
+    <rect x="132" y="0" width="34" height="34" class="token-light"/>
+    <rect x="176" y="0" width="34" height="34" class="token-light"/>
+    <rect x="220" y="0" width="34" height="34" class="token-light"/>
+    <rect x="264" y="0" width="34" height="34" class="token-light"/>
+    <rect x="308" y="0" width="34" height="34" class="token-light"/>
+    <rect x="352" y="0" width="34" height="34" class="token-light"/>
+  </g>
+  <path d="M650 360 H704" class="line"/>
+  <path d="M516 740 H680 V367 H704" class="line"/>
+
+  <!-- Encoder -->
+  <rect x="680" y="424" width="430" height="150" rx="18" class="panel"/>
+  <text x="895" y="486" text-anchor="middle" class="section" font-size="24">Encoder Layers × N</text>
+  <text x="895" y="516" text-anchor="middle" class="small">multi-scale deformable self-attention</text>
+  <text x="895" y="542" text-anchor="middle" class="small">contextualized visual memory</text>
+  <path d="M895 384 V424" class="line"/>
+
+  <!-- Query selection -->
+  <rect x="704" y="150" width="380" height="74" rx="14" class="panel"/>
+  <text x="894" y="196" text-anchor="middle" class="section" font-size="23">Mixed Query Selection</text>
+  <path d="M758 300 V224" class="line"/>
+  <path d="M818 300 V224" class="line"/>
+  <path d="M878 300 V224" class="line"/>
+  <path d="M938 300 V224" class="line"/>
+  <path d="M998 300 V224" class="line"/>
+  <g transform="translate(720 96)">
+    <rect x="0" y="0" width="34" height="34" class="token-light"/>
+    <rect x="60" y="0" width="34" height="34" class="token-light"/>
+    <rect x="120" y="0" width="34" height="34" class="token-light"/>
+    <rect x="180" y="0" width="34" height="34" class="token-light"/>
+    <rect x="240" y="0" width="34" height="34" class="token-light"/>
+    <rect x="300" y="0" width="34" height="34" class="token-light"/>
+  </g>
+  <text x="893" y="78" text-anchor="middle" class="small">top-K encoder proposals → initial anchors</text>
+  <path d="M737 126 V150" class="line"/>
+  <path d="M797 126 V150" class="line"/>
+  <path d="M857 126 V150" class="line"/>
+  <path d="M917 126 V150" class="line"/>
+  <path d="M977 126 V150" class="line"/>
+  <path d="M1037 126 V150" class="line"/>
+
+  <!-- Encoder outputs into decoder -->
+  <text x="1172" y="286" class="section" text-anchor="middle">Key &amp; Value memory</text>
+  <g transform="translate(1138 306)">
+    <rect x="0" y="0" width="34" height="34" class="token"/>
+    <rect x="44" y="0" width="34" height="34" class="token"/>
+    <rect x="88" y="0" width="34" height="34" class="token"/>
+    <rect x="132" y="0" width="34" height="34" class="token"/>
+    <rect x="176" y="0" width="34" height="34" class="token"/>
+    <rect x="220" y="0" width="34" height="34" class="token"/>
+    <rect x="264" y="0" width="34" height="34" class="token"/>
+  </g>
+  <path d="M1110 476 H1190 V340" class="line-blue"/>
+  <path d="M1110 520 H1212 V340" class="line-blue"/>
+  <path d="M1210 340 V408" class="line"/>
+  <text x="1234" y="376" class="small">cross-attention</text>
+
+  <!-- Decoder -->
+  <rect x="1110" y="408" width="390" height="166" rx="18" class="panel"/>
+  <text x="1305" y="472" text-anchor="middle" class="section" font-size="24">Decoder Layers × M</text>
+  <text x="1305" y="502" text-anchor="middle" class="small">self-attention + cross-attention</text>
+  <text x="1305" y="530" text-anchor="middle" class="small">iterative box / mask refinement</text>
+  <path d="M1210 340 V408" class="line"/>
+
+  <!-- Learnable content queries -->
+  <text x="1305" y="636" text-anchor="middle" class="section">Learnable content queries</text>
+  <g transform="translate(1148 654)">
+    <rect x="0" y="0" width="34" height="34" class="token-query"/>
+    <rect x="48" y="0" width="34" height="34" class="token-query"/>
+    <rect x="96" y="0" width="34" height="34" class="token-query"/>
+    <rect x="144" y="0" width="34" height="34" class="token-query"/>
+    <rect x="192" y="0" width="34" height="34" class="token-query"/>
+    <rect x="240" y="0" width="34" height="34" class="token-query"/>
+    <rect x="288" y="0" width="34" height="34" class="token-query"/>
+  </g>
+  <path d="M1165 654 V574" class="line"/>
+  <path d="M1213 654 V574" class="line"/>
+  <path d="M1261 654 V574" class="line"/>
+  <path d="M1309 654 V574" class="line"/>
+  <path d="M1357 654 V574" class="line"/>
+  <path d="M1405 654 V574" class="line"/>
+  <path d="M1453 654 V574" class="line"/>
+
+  <!-- Denoising training branch -->
+  <rect x="1550" y="150" width="200" height="475" rx="16" class="panel-orange"/>
+  <text x="1650" y="190" text-anchor="middle" class="section">CDN</text>
+  <text x="1650" y="216" text-anchor="middle" class="small">contrastive denoising</text>
+  <path d="M1550 270 H1750" class="dash"/>
+  <text x="1602" y="252" class="small">Pos</text>
+  <text x="1690" y="252" class="small">Neg</text>
+  <rect x="1590" y="282" width="44" height="44" class="token-orange"/>
+  <rect x="1668" y="282" width="44" height="44" class="token-neg"/>
+  <path d="M1612 326 V408 H1480" class="line-orange"/>
+  <path d="M1690 326 V408 H1480" class="line-orange"/>
+  <text x="1650" y="372" text-anchor="middle" class="small">GT + noise</text>
+  <rect x="1588" y="450" width="46" height="46" class="token-light"/>
+  <rect x="1666" y="450" width="46" height="46" fill="#ffffff" stroke="#6c5a13" stroke-width="2"/>
+  <path d="M1611 450 V408 H1480" class="line-orange"/>
+  <path d="M1689 450 V408 H1480" class="line-orange"/>
+  <text x="1650" y="540" text-anchor="middle" class="small">training-only auxiliary</text>
+  <text x="1650" y="562" text-anchor="middle" class="small">denoising queries</text>
+
+  <!-- Unified prediction heads -->
+  <path d="M1305 574 V724" class="line"/>
+  <rect x="1050" y="724" width="510" height="88" rx="14" class="panel-blue"/>
+  <text x="1305" y="758" text-anchor="middle" class="section">Unified prediction heads</text>
+  <text x="1305" y="786" text-anchor="middle" class="small">class logits · boxes · masks / pixel embeddings</text>
+  <path d="M1450 812 V840 H1600" class="line"/>
+  <path d="M1160 812 V840 H1000" class="line"/>
+
+  <!-- DINOIDOL association lane -->
+  <rect x="48" y="824" width="940" height="108" rx="16" fill="#f7f7f8" stroke="#c9c9cb" stroke-width="2"/>
+  <text x="70" y="855" class="section">DINOIDOL temporal association</text>
+  <rect x="70" y="872" width="180" height="42" rx="8" class="panel-blue"/>
+  <text x="160" y="898" text-anchor="middle" class="label">Re-ID embedding</text>
+  <path d="M250 893 H304" class="line-blue"/>
+  <rect x="304" y="872" width="180" height="42" rx="8" class="panel-blue"/>
+  <text x="394" y="898" text-anchor="middle" class="label">IDOL tracker</text>
+  <path d="M484 893 H538" class="line-blue"/>
+  <rect x="538" y="872" width="210" height="42" rx="8" class="panel-blue"/>
+  <text x="643" y="898" text-anchor="middle" class="label">track memory / matching</text>
+  <path d="M748 893 H802" class="line-blue"/>
+  <rect x="802" y="872" width="160" height="42" rx="8" class="panel-blue"/>
+  <text x="882" y="898" text-anchor="middle" class="label">video instances</text>
+  <text x="70" y="925" class="tiny">Frame-level predictions are associated across time using appearance embeddings and temporal memory.</text>
+
+  <!-- Connector from heads to association lane -->
+  <path d="M1050 768 H1000 V840 H160 V872" class="line-blue"/>
+  <text x="1008" y="829" class="tiny">frame predictions</text>
+</svg>
